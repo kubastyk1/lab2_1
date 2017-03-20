@@ -47,4 +47,17 @@ public class SearchTest {
 		assertThat(searchResult.getPosition(), is(equalTo(position)));
 		assertThat(seq[position], is(equalTo(key)));
 	}
+	
+	@Test
+	public void objectIsLastElementTest() {
+		int[] seq = {1,2,3,4,5,6,7,8,9,10};
+		int key = 10;
+		int position = seq.length - 1;
+
+		SearchResult searchResult = BinarySearch.search(key, seq);
+
+		assertThat(searchResult.isFound(), is(true));
+		assertThat(searchResult.getPosition(), is(equalTo(position)));
+		assertThat(seq[position], is(equalTo(key)));
+	}
 }
