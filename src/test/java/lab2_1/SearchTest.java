@@ -49,6 +49,19 @@ public class SearchTest {
 	}
 	
 	@Test
+	public void objectIsNotFirstElementTest() {
+		int[] seq = {1,2,3,4,5,6,7,8,9,10};
+		int key = 4;
+		int position = 0;
+
+		SearchResult searchResult = BinarySearch.search(key, seq);
+
+		assertThat(searchResult.isFound(), is(true));
+		assertThat(searchResult.getPosition(), is(not(equalTo(position))));
+		assertThat(seq[position], is(not(equalTo(key))));
+	}
+	
+	@Test
 	public void objectIsLastElementTest() {
 		int[] seq = {1,2,3,4,5,6,7,8,9,10};
 		int key = 10;
