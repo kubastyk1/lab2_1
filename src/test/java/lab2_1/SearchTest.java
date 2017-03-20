@@ -111,4 +111,18 @@ public class SearchTest {
 		assertThat(searchResult.isFound(), is(not(true)));
 		assertThat(searchResult.getPosition(), is(equalTo(position)));
 	}
+
+	@Test
+	public void sequenceIsEmptyTest() {
+		int[] seq = {};
+		int key = 5;
+
+		try {
+			SearchResult searchResult = BinarySearch.search(key, seq);
+		} catch (IllegalArgumentException anIllegalArgumentException) {
+	        assertThat(anIllegalArgumentException.getMessage(), is("Error!"));
+	    }
+
+		assertThat(seq.length, is(0));
+	}
 }
