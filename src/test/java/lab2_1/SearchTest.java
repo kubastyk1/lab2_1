@@ -145,4 +145,24 @@ public class SearchTest {
 
 		assertThat(isInFirstPart, is(true));
 	}
+	
+	@Test
+	public void objectIsInSecondPartOfSequenceTest() {
+		int[] seq = {1,2,3,4,5,6,7,8,9};
+		int key = 8;
+		int position = 7;
+		int middle = seq.length/2;
+		boolean isInSecondPart = false;
+
+		SearchResult searchResult = BinarySearch.search(key, seq);
+
+		if(key > middle)
+			isInSecondPart = true;
+
+		assertThat(searchResult.isFound(), is(true));
+		assertThat(searchResult.getPosition(), is(equalTo(position)));
+		assertThat(seq[position], is(equalTo(key)));
+
+		assertThat(isInSecondPart, is(true));
+	}
 }
