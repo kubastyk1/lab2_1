@@ -73,4 +73,16 @@ public class SearchTest {
 		assertThat(searchResult.getPosition(), is(equalTo(position)));
 		assertThat(seq[position], is(equalTo(key)));
 	}
+	
+	@Test
+	public void objectIsNotInSequenceManyObjectsTest() {
+		int[] seq = {1,2,3,4,5,6,7,8,9};
+		int key = 77;
+		int position = -1;
+
+		SearchResult searchResult = BinarySearch.search(key, seq);
+
+		assertThat(searchResult.isFound(), is(not(true)));
+		assertThat(searchResult.getPosition(), is(equalTo(position)));
+	}
 }
