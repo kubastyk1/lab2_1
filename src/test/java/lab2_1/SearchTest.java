@@ -60,4 +60,17 @@ public class SearchTest {
 		assertThat(searchResult.getPosition(), is(equalTo(position)));
 		assertThat(seq[position], is(equalTo(key)));
 	}
+	
+	@Test
+	public void objectIsMiddleElementTest() {
+		int[] seq = {1,2,3,4,5,6,7,8,9};
+		int key = 5;
+		int position = seq.length/2;
+
+		SearchResult searchResult = BinarySearch.search(key, seq);
+
+		assertThat(searchResult.isFound(), is(true));
+		assertThat(searchResult.getPosition(), is(equalTo(position)));
+		assertThat(seq[position], is(equalTo(key)));
+	}
 }
