@@ -23,4 +23,15 @@ public class SearchTest {
 		assertThat(seq[position], is(equalTo(key)));
 	}
 
+	@Test
+	public void objectIsNotInSequenceTest() {
+		int[] seq = {5};
+		int key = 77;
+		int position = -1;
+
+		SearchResult searchResult = BinarySearch.search(key, seq);
+
+		assertThat(searchResult.isFound(), is(not(true)));
+		assertThat(searchResult.getPosition(), is(equalTo(position)));
+	}
 }
